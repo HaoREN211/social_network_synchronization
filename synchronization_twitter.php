@@ -18,28 +18,16 @@ $connect_1and1 = mysqli_connect($mysql_host_name,
 
 $twitter = new Twitter($twitter_consumer_key, $twitter_consumer_secret);
 $twitter->set_twitter_name($twitter_sreen_name);
-$twitter->api_users_show();
-$twitter->save_user_shows($mysql_host_name,
+$twitter->set_mysql_bdd($mysql_host_name,
     $mysql_user_name,
     $mysql_password,
     $mysql_database);
 
+$twitter->api_users_show();
+$twitter->save_user_shows();
+$twitter->save_user_statistic();
 
-
-		
-//url-ify the data for the POST
-// foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
-// $fields_string = rtrim($fields_string,'&');
-
-//
-
-
-
-
-
-
-
-
+// $twitter->api_users_show();
 
 /*
 $script = "select id from hao_socialnetwork_meetics limit 10;";
